@@ -44,34 +44,28 @@ Pada kesempatan kali ini, saya membuat model machine learning terkait dengan pen
 
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Pada tahap ini kita akan mengonversi label pada data training dan validasi dengan teknik one hot encoding. Tujuannya agar label, yang sebelumnya merupakan tipe data string menjadi fitur kategorik. Kita akan menggunakan fungsi `to_categorical` dari library tensorflow.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+- Implementasi callback pada model. 
+- Set training berhenti saat akurasi model mencapai 96%. 
+- Set parameter layer pertama sebagai berikut:
+  - Ukuran filter untuk proses konvolusi=32
+  - Ukuran kernel=(5,5)
+  - Fungsi aktivasi RELU
+  - Pooling yang kita gunakan adalah Maxpool dengan ukuran 2,2
+  - Dropout rate sebesar 0.25
+- Selanjutnya, untuk layer kedua, gunakan arsitektur sebagai berikut:
+  - Ukuran filter untuk proses konvolusi=64
+  - Ukuran kernel=(3,3)
+  - Fungsi aktivasi RELU
+  - Pooling yang kita gunakan adalah Maxpool dengan ukuran 2,2
+  - Dropout rate sebesar 0.25
+- Fully connected layer beserta Output dari model summary.
+- Melakukan kompilasi model dan memanggil fungsi fit untuk memulai training
+- Melakukan plotting untuk mendapatkan grafik akurasi dan loss
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
-
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
-
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+- Metrik evaluasi yang digunakan adalah sebagai berikut:
+  - `accuracy_score` untuk menghitung akurasi subset pada klasifikasi banyak kelas.
+  - `classification_report` untuk memperoleh metrik klasifikasi lain seperti precision, recall, dan f1-score.
