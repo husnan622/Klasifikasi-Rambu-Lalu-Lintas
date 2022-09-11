@@ -1,56 +1,47 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Klasifikasi Rambu Lalu Lintas - Husnan
 
 ## Domain Proyek
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+Beberapa penerapan computer vision yang paling penting untuk self-driving cars adalah kemampuan mendeteksi, mengklasifikasikan, dan melokalisasi berbagai jenis objek. Objek-objek ini bisa berupa kendaraan lain, pejalan kaki, rambu lalu lintas, atau hal aneh lain yang mungkin kita lihat saat mengemudi.
+Pada kesempatan kali ini, saya membuat model machine learning terkait dengan penerapan computer vision pada self-driving cars. Saya membuat model klasifikasi gambar dengan data berupa rambu-rambu lalu lintas.
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
-
-Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+- Bagaimana self-driving cars memahami peringatan, larangan, perintah, atau petunjuk pada jalan?
 
 ### Goals
-
-Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
-
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+- Membuat model klasifikasi gambar dengan data berupa rambu-rambu lalu lintas.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+[German Traffic Sign Dataset](https://www.kaggle.com/datasets/saadhaxxan/germantrafficsigns) merupakan benchmark dataset untuk klasifikasi gambar multi kelas. Terdapat satu rambu lalu lintas pada masing-masing gambar, sehingga dataset ini disebut juga sebagai single-image atau gambar tunggal.
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+### Variabel-variabel pada German Traffic Sign Dataset adalah sebagai berikut:
+|Kelas |Label                                        |Kelas   |Label                                         | 
+|------|---------------------------------------------|--------|----------------------------------------------|
+|0   	 |Speed limit (20km/h)   	                     |22   	  |Bumpy road   	                               |
+|1   	 |Speed limit (30km/h)   	                     |23   	  |Slippery road   	                             |
+|2   	 |Speed limit (50km/h)   	                     |24   	  |Road narrows on the right   	                 |
+|3   	 |Speed limit (60km/h)   	                     |25   	  |Road work   	                                 |
+|4   	 |Speed limit (70km/h)   	                     |26   	  |Traffic signals   	                           |
+|5   	 |Speed limit (80km/h)   	                     |27   	  |Pedestrians   	                               |
+|6   	 |End of speed limit (80km/h)                  |28   	  |Children crossing   	                         |
+|7   	 |Speed limit (100km/h)   	                   |29   	  |Bicycles crossing   	                         |
+|8   	 |Speed limit (120km/h)   	                   |30   	  |Beware of ice/snow   	                       |
+|9   	 |No passing   	                               |31   	  |Wild animals crossing   	                     |
+|10    |No passing for vehicles over 3.5 metric tons |32   	  |End of all speed and passing limits   	       |
+|11    |Right-of-way at the next intersection   	   |33   	  |Turn right ahead   	                         |
+|12    |Priority road   	                           |34   	  |Turn left ahead   	                           |
+|13    |Yield   	                                   |35   	  |Ahead only   	                               |
+|14    |Stop   	                                     |36   	  |Go straight or right   	                     |
+|15    |No vehicles   	                             |37   	  |Go straight or left   	                       |
+|16    |Vehicles over 3.5 metric tons prohibited   	 |38   	  |Keep right   	                               |
+|17    |No entry   	                                 |39   	  |Keep left   	                                 |
+|18    |General caution   	                         |40   	  |Roundabout mandatory   	                     |
+|19    |Dangerous curve to the left   	             |41   	  |End of no passing   	                         |
+|20    |Dangerous curve to the right   	             |42   	  |End of no passing by vehicles over 3.5 metric |
+|21    |Double curve   	                             |   	    |   	                                         |
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
